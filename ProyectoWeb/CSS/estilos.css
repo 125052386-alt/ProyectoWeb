@@ -1,0 +1,1315 @@
+
+
+:root {
+  /* Paleta Oficial Weirdo Comics */
+  --color-lime: #d4f934;
+  --color-lime-hover: #c2e825;
+  --color-lime-dim: rgba(212, 249, 52, 0.15);
+  --color-lime-tag: #88c71a;
+
+  /* Tema Oscuro (Sidebar y Auth Hero) */
+  --bg-sidebar: #111111;
+  --bg-sidebar-card: #1c1c1c;
+  --sidebar-border: #242424;
+  --sidebar-text: #8e8e93;
+  --sidebar-text-hover: #ffffff;
+  --sidebar-active-bg: #d4f934;
+  --sidebar-active-text: #000000;
+
+  /* Tema Claro (Contenido Principal) */
+  --bg-main: #f8f8f9;
+  --bg-card: #ffffff;
+  --border-light: #ececf0;
+  --text-dark: #111111;
+  --text-secondary: #6e6e73;
+  --text-muted: #8e8e93;
+
+  /* Estados e Indicadores */
+  --status-green: #16a34a;
+  --status-orange: #ea580c;
+  --status-red: #dc2626;
+  --badge-blue-bg: #e0f2fe;
+  --badge-blue-text: #0284c7;
+
+  /* Badges de Editoriales / Cómics */
+  --badge-sp: #c25e46; /* Spider-man terracotta */
+  --badge-bm: #2c3e50; /* Batman dark blue */
+  --badge-sg: #d97736; /* Saga orange */
+  --badge-cm: #6b46c1; /* Chainsaw man purple */
+  --badge-wm: #b58900; /* Watchmen gold */
+  --badge-dd: #991b1b; /* Daredevil crimson */
+
+  /* Tipografía y Geometría */
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+}
+
+/* Reset Básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select {
+  font-family: inherit;
+}
+
+/* 1. PANTALLAS DE AUTENTICACIÓN (LOGIN Y REGISTRO) */
+
+.auth-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Mitad Izquierda: Fondo Negro con Marca y Gráfico */
+.auth-left {
+  flex: 1;
+  background-color: #111111;
+  color: #ffffff;
+  padding: 3rem 4.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-badge {
+  width: 38px;
+  height: 38px;
+  background-color: var(--color-lime);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: -0.05em;
+}
+
+.brand-text-stack {
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.auth-hero-center {
+  margin: auto 0;
+  max-width: 480px;
+}
+
+.eyebrow-tag {
+  color: var(--color-lime-tag);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.auth-hero-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.auth-hero-title .lime-word {
+  color: var(--color-lime);
+}
+
+.auth-hero-desc {
+  color: #8e8e93;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 2.5rem;
+}
+
+/* Gráfico de Cómic / Tarjeta Flotante con BAM! */
+.comic-visual-box {
+  position: relative;
+  width: 220px;
+  height: 180px;
+}
+
+.bam-badge {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: var(--color-lime);
+  color: #000000;
+  font-weight: 900;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 4px;
+  transform: rotate(-12deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 2;
+  letter-spacing: 0.05em;
+}
+
+.comic-card-art {
+  position: absolute;
+  top: 0;
+  left: 65px;
+  width: 140px;
+  height: 185px;
+  background: #5b46b8;
+  border: 4px solid #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(5deg);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+  color: #ffffff;
+}
+
+.comic-card-num {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.comic-card-label {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.auth-version-foot {
+  font-size: 0.75rem;
+  color: #444444;
+}
+
+/* Mitad Derecha: Formulario */
+.auth-right {
+  flex: 1;
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 4.5rem;
+}
+
+.auth-form-card {
+  width: 100%;
+  max-width: 380px;
+}
+
+.form-header-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.35rem;
+}
+
+.form-header-sub {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+}
+
+.field-group {
+  margin-bottom: 1.25rem;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0.4rem;
+}
+
+.text-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #e5e5ea;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.text-input::placeholder {
+  color: #aeaeb2;
+}
+
+.text-input:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.08);
+}
+
+.btn-primary-action {
+  width: 100%;
+  background-color: var(--color-lime);
+  color: #111111;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.9rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.75rem;
+  transition: background-color 0.15s;
+}
+
+.btn-primary-action:hover {
+  background-color: var(--color-lime-hover);
+}
+
+.auth-bottom-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.auth-bottom-link a {
+  font-weight: 800;
+  color: #111111;
+}
+
+/* 2. APP LAYOUT: SIDEBAR Y CONTENEDOR PRINCIPAL */
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Oscura */
+.sidebar {
+  width: 240px;
+  background-color: var(--bg-sidebar);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1rem;
+  flex-shrink: 0;
+  border-right: 1px solid var(--sidebar-border);
+}
+
+.sidebar-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0.5rem 1.75rem 0.5rem;
+  color: #ffffff;
+}
+
+.sidebar-category-title {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555555;
+  padding: 0.75rem 0.75rem 0.35rem 0.75rem;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--sidebar-text);
+  transition: all 0.15s;
+}
+
+.sidebar-item:hover {
+  color: var(--sidebar-text-hover);
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Item Activo en Sidebar: Píldora Lima Brillante */
+.sidebar-item.active {
+  background-color: var(--sidebar-active-bg);
+  color: var(--sidebar-active-text);
+  font-weight: 800;
+}
+
+.badge-counter-red {
+  width: 18px;
+  height: 18px;
+  border-radius: var(--radius-full);
+  background-color: #e03131;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Perfil de Usuario en Sidebar */
+.sidebar-user-card {
+  background-color: var(--bg-sidebar-card);
+  border: 1px solid var(--sidebar-border);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.user-avatar-initials {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: #262626;
+  color: var(--color-lime);
+  font-weight: 800;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-details {
+  line-height: 1.2;
+}
+
+.user-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.user-role-label {
+  font-size: 0.7rem;
+  color: #777777;
+}
+
+/* Área Principal */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--bg-main);
+}
+
+/* Top Breadcrumbs Bar */
+.top-nav-bar {
+  height: 52px;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+
+.breadcrumb-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #111111;
+}
+
+.header-date-badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #8e8e93;
+}
+
+/* Contenedor Interior */
+.content-body {
+  padding: 2.25rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+/* Encabezado de Página */
+.page-header-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+}
+
+.page-title {
+  font-size: 1.95rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111111;
+  line-height: 1.15;
+}
+
+.page-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Botón de Acción Superior (Lima) */
+.btn-top-action {
+  background-color: var(--color-lime);
+  color: #111111;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background-color 0.15s;
+}
+
+.btn-top-action:hover {
+  background-color: var(--color-lime-hover);
+}
+
+.btn-top-action-white {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  color: #111111;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* 3. TARJETAS DE MÉTRICAS (KPIs) */
+
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.kpi-card {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Tarjeta Destacada Negra */
+.kpi-card.kpi-dark {
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #222222;
+}
+
+.kpi-card.kpi-dark .kpi-label {
+  color: #8e8e93;
+}
+
+.kpi-card.kpi-dark .kpi-value {
+  color: #ffffff;
+}
+
+.kpi-card.kpi-dark .kpi-subtext {
+  color: #4ade80; /* Green accent */
+}
+
+/* Tarjeta Destacada Lima */
+.kpi-card.kpi-lime {
+  background-color: var(--color-lime);
+  color: #111111;
+  border-color: transparent;
+}
+
+.kpi-card.kpi-lime .kpi-label {
+  color: #111111;
+  font-weight: 700;
+}
+
+.kpi-card.kpi-lime .kpi-value {
+  color: #111111;
+}
+
+.kpi-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.kpi-value {
+  font-size: 2.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #111111;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.kpi-subtext {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.kpi-subtext.text-orange {
+  color: var(--status-orange);
+  font-weight: 600;
+}
+
+/* 4. TABLAS Y LISTADOS */
+
+.panel-white {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  margin-bottom: 2rem;
+}
+
+.panel-header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.panel-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #111111;
+}
+
+.panel-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+.panel-action-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #111111;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Tabla Estilizada */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.825rem;
+}
+
+.data-table th {
+  padding: 0.75rem 1rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8e8e93;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.data-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #f2f2f5;
+  color: #111111;
+  vertical-align: middle;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Puntos de Estado */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.status-pill.disponible { color: var(--status-green); }
+.status-pill.stock-bajo { color: var(--status-orange); }
+.status-pill.agotado { color: var(--status-red); }
+.status-pill.completado { color: var(--status-green); }
+
+.status-pill::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: currentColor;
+}
+
+.status-badge-blue {
+  background-color: var(--badge-blue-bg);
+  color: var(--badge-blue-text);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.action-link {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+}
+
+.btn-pill-reimprimir {
+  background-color: #f2f2f7;
+  border: none;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #111111;
+}
+
+/* Celdas con Avatar de Cómic (SP, BM, SG, etc.) */
+.comic-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.comic-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.comic-avatar.sp { background-color: var(--badge-sp); }
+.comic-avatar.bm { background-color: var(--badge-bm); }
+.comic-avatar.sg { background-color: var(--badge-sg); }
+.comic-avatar.cm { background-color: var(--badge-cm); }
+.comic-avatar.wm { background-color: var(--badge-wm); }
+.comic-avatar.dd { background-color: var(--badge-dd); }
+.comic-avatar.dc { background-color: #1a252f; }
+.comic-avatar.pm { background-color: #8b2626; }
+
+.comic-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #111111;
+}
+
+.comic-sub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* 5. COMPONENTES DE BÚSQUEDA Y FILTRO */
+
+.filter-bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-field-wide {
+  width: 100%;
+  max-width: 440px;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.search-field-wide::placeholder {
+  color: #999999;
+}
+
+.dropdown-pill {
+  padding: 0.65rem 1.25rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111111;
+  cursor: pointer;
+}
+
+/* Tabs de Navegación (Todos, Pendientes, En tránsito, Recibidos) */
+.tabs-row {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+  padding: 0.6rem 0;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.tab-btn.active {
+  color: #111111;
+  font-weight: 800;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #111111;
+}
+
+/* 6. PANTALLA DE INVENTARIO (LISTA CON CONTROLES + / -) */
+
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.inventory-card-item {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qty-counter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background-color: #f7f7f8;
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+}
+
+.qty-btn {
+  background: none;
+  border: none;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #555555;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qty-number {
+  font-weight: 800;
+  font-size: 0.85rem;
+  min-width: 22px;
+  text-align: center;
+}
+
+/* 7. PANTALLA DE PROVEEDORES */
+
+.providers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.provider-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 240px;
+}
+
+.provider-meta-row {
+  margin-top: 1rem;
+}
+
+.provider-meta-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.provider-meta-val {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 0.6rem;
+}
+
+.btn-provider-action {
+  background-color: #f7f7f8;
+  border: 1px solid #ebebed;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+/* 8. PUNTO DE VENTA / MOSTRADOR (NUEVA VENTA) */
+
+.pos-container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+}
+
+.pos-catalog-panel {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid var(--border-light);
+}
+
+.pos-items-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.pos-product-card {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.pos-add-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  font-weight: 800;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+}
+
+/* Panel Derecho: Ticket de Venta */
+.pos-ticket-panel {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pos-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #8e8e93;
+}
+
+.cart-icon-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: #f2f2f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.payment-methods-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  margin: 1.25rem 0;
+}
+
+.pay-btn {
+  padding: 0.65rem 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e5ea;
+  background: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.pay-btn.active {
+  background-color: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.ticket-totals-box {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1rem;
+}
+
+.totals-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.35rem;
+}
+
+.totals-final {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111111;
+  margin: 0.75rem 0 1rem 0;
+}
+
+.btn-checkout-disabled {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #e5e5ea;
+  color: #8e8e93;
+  border-radius: 10px;
+  border: none;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: not-allowed;
+}
+
+/* 9. REPORTES & GRÁFICOS (DONUT Y BARRAS) */
+
+.reports-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 1.5rem;
+}
+
+/* Gráfico de Barras Semanal en Resumen */
+.weekly-bars-box {
+  background-color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  border: 1px solid var(--border-light);
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.bars-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 180px;
+  gap: 1.25rem;
+  padding: 1.5rem 0 0.5rem 0;
+}
+
+.bar-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar-fill-lime {
+  width: 100%;
+  max-width: 44px;
+  background-color: var(--color-lime);
+  border-radius: 4px;
+}
+
+.bar-day-name {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #111111;
+  margin-top: 0.65rem;
+}
+
+/* Donut Chart en Reportes */
+.donut-representation {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-full);
+  background: conic-gradient(
+    #d4f934 0% 34%,
+    #111111 34% 62%,
+    #6b46c1 62% 85%,
+    #d97736 85% 100%
+  );
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-inner-hole {
+  width: 82px;
+  height: 82px;
+  border-radius: var(--radius-full);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #111111;
+}
+
+.donut-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  font-size: 0.8rem;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+/* Top 5 Productos Lista */
+.top-product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f2f2f5;
+}
+
+.top-product-row:last-child {
+  border-bottom: none;
+}
+
+.top-rank-num {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: #111111;
+  width: 24px;
+}
+
+/* Badge de Rol Administrador */
+.badge-role-admin {
+  background-color: #111111;
+  color: var(--color-lime);
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+/* 10. RESPONSIVIDAD */
+
+@media (max-width: 900px) {
+  .auth-wrapper {
+    flex-direction: column;
+  }
+  .auth-left, .auth-right {
+    padding: 2.5rem 1.5rem;
+  }
+  .pos-container, .reports-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .content-body {
+    padding: 1rem;
+  }
+  .page-header-row {
+    flex-direction: column;
+  }
+  .top-nav-bar {
+    padding: 0 1rem;
+  }
+}
+
+
+/* 11. COMPONENTES VENDEDOR (CARLOS MENDOZA) */
+
+.comic-avatar.cm-user {
+  background-color: #1e293b;
+  color: #38bdf8;
+}
+
+.eyebrow-tag.blue {
+  color: #0284c7;
+}
+
+.kpi-product-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+/* Banner Acceso Rápido a Caja */
+.banner-quick-pos {
+  background-color: #111111;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  border: 1px solid #222222;
+}
+
+.banner-quick-info {
+  max-width: 600px;
+}
+
+.banner-quick-eyebrow {
+  color: var(--color-lime);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.banner-quick-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.02em;
+}
+
+.banner-quick-desc {
+  font-size: 0.8rem;
+  color: #8e8e93;
+  line-height: 1.4;
+}
+
+.btn-cobrar-ahora {
+  background-color: var(--color-lime);
+  color: #111111;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.btn-cobrar-ahora:hover {
+  background-color: var(--color-lime-hover);
+}
